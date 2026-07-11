@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-primary: #D4AF37;
+  --color-gold-hover: #C5A059;
+  --color-gold-light: #FDF6E2;
+  --color-gold-champagne: #F7E7CE;
+  --color-gold-dark: #AA7C11;
+  --color-luxury-black: #0B0B0C;
+  --color-luxury-charcoal: #161618;
+  --color-luxury-gray: #242427;
+  --color-luxury-light-gray: #A1A1AA;
+  
+  --font-playfair: var(--font-playfair);
+  --font-montserrat: var(--font-montserrat);
+}
+
+:root {
+  --background: #0B0B0C;
+  --foreground: #F3F4F6;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom luxury animation styles */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #a8801d 0%,
+    #d4af37 25%,
+    #fdf6e2 50%,
+    #d4af37 75%,
+    #a8801d 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gold-shimmer 6s linear infinite;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #a8801d 0%,
+    #d4af37 50%,
+    #a8801d 100%
+  );
+}
+
+.gold-gradient-hover:hover {
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #a8801d 50%,
+    #d4af37 100%
+  );
+  transition: all 0.5s ease-in-out;
+}
+
+.glass-panel {
+  background: rgba(22, 22, 24, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for luxury aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #242427;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
