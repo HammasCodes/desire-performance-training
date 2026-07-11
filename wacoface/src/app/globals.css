@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), sans-serif;
+  
+  --color-brand-cream: #FAF6F0;
+  --color-brand-cream-dark: #F2EADF;
+  --color-brand-rose: #B87D70;
+  --color-brand-rose-light: #E5C2BD;
+  --color-brand-rose-soft: #F5ECEB;
+  --color-brand-gold: #C5A880;
+  --color-brand-gold-dark: #A48962;
+  --color-brand-gold-light: #E3D5C1;
+  --color-brand-dark: #2C2523;
+  --color-brand-dark-soft: #443B39;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Utilities or Micro-animations */
+.bg-glass {
+  background-color: rgba(250, 246, 240, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #C5A880 0%, #A48962 100%);
+}
+
+.rose-gradient {
+  background: linear-gradient(135deg, #E5C2BD 0%, #B87D70 100%);
+}
+
+.cream-gradient {
+  background: linear-gradient(180deg, #FAF6F0 0%, #F2EADF 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C5A880 0%, #A48962 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
