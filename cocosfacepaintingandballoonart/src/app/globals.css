@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-pink: #ff5995;
+  --color-brand-pink-hover: #e03d7b;
+  --color-brand-blue: #25a6e9;
+  --color-brand-blue-hover: #1b8ecb;
+  --color-brand-yellow: #f5b014;
+  --color-brand-yellow-hover: #d99a0b;
+  --color-brand-purple: #9a4beb;
+  --color-brand-purple-hover: #8037cf;
+  --color-brand-orange: #ff7a39;
+  --color-brand-orange-hover: #e06020;
+  --color-brand-green: #2ecc71;
+  --color-brand-green-hover: #25a257;
+
+  --font-display: var(--font-fredoka), system-ui, sans-serif;
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-nunito), sans-serif;
+}
