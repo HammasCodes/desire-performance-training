@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAF6F0;
+  --foreground: #1F1A17;
+  
+  --color-cream: #FAF6F0;
+  --color-cream-light: #FFFDFB;
+  --color-blush: #F7ECE6;
+  --color-blush-dark: #EEDCD2;
+  --color-gold-light: #F3E5D8;
+  --color-gold: #C5A880;
+  --color-gold-dark: #A4855C;
+  --color-espresso: #1F1A17;
+  --color-espresso-muted: #524641;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-cream: var(--color-cream);
+  --color-cream-light: var(--color-cream-light);
+  --color-blush: var(--color-blush);
+  --color-blush-dark: var(--color-blush-dark);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-espresso: var(--color-espresso);
+  --color-espresso-muted: var(--color-espresso-muted);
+  
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blush-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Custom styles */
+.luxury-shadow {
+  box-shadow: 0 20px 45px -10px rgba(31, 26, 23, 0.06);
+}
+.gold-gradient {
+  background: linear-gradient(135deg, #A4855C 0%, #C5A880 50%, #E3D2BC 100%);
+}
+.gold-text-gradient {
+  background: linear-gradient(135deg, #8E714B 0%, #C5A880 50%, #AA8C65 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.blush-gradient {
+  background: linear-gradient(135deg, #FAF6F0 0%, #F7ECE6 100%);
+}
+.transition-smooth {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
