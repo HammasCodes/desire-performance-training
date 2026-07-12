@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #D4AF37;
+  --color-gold-light: #E5C483;
+  --color-gold-dark: #B8860B;
+  --color-cream: #FAF8F5;
+  --color-soft-black: #121212;
+  --color-luxury-charcoal: #1E1E1E;
+  --color-neutral-beige: #F4EFEB;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --background: #FAF8F5;
+  --foreground: #121212;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5C483;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Elegant gold shine effect */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 55%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+.shine-effect:hover::after {
+  transform: translate(100%, 100%) rotate(45deg);
+}
+
