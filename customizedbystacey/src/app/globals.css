@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --color-gold-50: #fdfbf7;
+  --color-gold-100: #faf4e3;
+  --color-gold-300: #e6c687;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #c59b27;
+  --color-gold-700: #a37e1c;
+
+  --color-softpink-50: #fff5f6;
+  --color-softpink-100: #ffe5e8;
+  --color-softpink-200: #ffccd3;
+  --color-softpink-400: #ff99a8;
+  --color-softpink-500: #ff6f85;
+  --color-softpink-600: #e64d65;
+
+  --color-tealaccent-50: #f0fdfd;
+  --color-tealaccent-100: #ccfbfa;
+  --color-tealaccent-300: #5eead4;
+  --color-tealaccent-500: #0d9488;
+  --color-tealaccent-600: #0f766e;
+  --color-tealaccent-700: #115e59;
+  
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+:root {
+  --background: #fffdfd;
+  --foreground: #1e1b1b;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom UI Utilities */
+.glitter-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #c59b27 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glitter-bg-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #c59b27 100%);
+}
+
+.glitter-gradient-pink-gold {
+  background: linear-gradient(135deg, #ff6f85 0%, #ffccd3 40%, #e6c687 75%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(255, 111, 133, 0.15);
+}
+
+.custom-card-shadow-teal {
+  box-shadow: 0 10px 30px -10px rgba(13, 148, 136, 0.15);
+}
+
+.custom-card-shadow-gold {
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+}
+
+/* Dot pattern background */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 111, 133, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-pattern-teal {
+  background-image: radial-gradient(rgba(13, 148, 136, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
