@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-script: var(--font-pacifico), cursive;
+
+  --color-cream: #fbf3e1;
+  --color-cream-dark: #f2e4c4;
+  --color-parchment: #fffaf0;
+  --color-crimson: #9c1c2e;
+  --color-crimson-dark: #711522;
+  --color-crimson-light: #c53347;
+  --color-gold: #c9982f;
+  --color-gold-light: #e6c469;
+  --color-gold-dark: #9c7420;
+  --color-ink: #2c1810;
+  --color-cocoa: #55332590;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-script {
+  font-family: var(--font-script);
+}
+
+.bg-scallop-top {
+  position: relative;
+}
+
+.bg-scallop-top::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-image: radial-gradient(
+    circle at 10px 0,
+    transparent 10px,
+    var(--color-cream) 10.5px
+  );
+  background-size: 20px 14px;
+  background-repeat: repeat-x;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-in {
+    animation: fade-up 0.7s ease-out both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
