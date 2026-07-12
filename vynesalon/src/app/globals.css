@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #121212;
+  --foreground: #F3F4F6;
+}
+
+@theme {
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  --color-brand-charcoal: #121212;
+  --color-brand-charcoal-light: #1A1A1A;
+  --color-brand-charcoal-medium: #262626;
+  --color-brand-charcoal-dark: #0A0A0A;
+  
+  --color-brand-gold: #C5A880;
+  --color-brand-gold-light: #DFCDAB;
+  --color-brand-gold-dark: #A68A62;
+  --color-brand-gold-accent: #D4AF37;
+  
+  --color-brand-green: #0A1F13;
+  --color-brand-green-light: #12301E;
+  --color-brand-green-dark: #040E08;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-charcoal-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-charcoal-medium);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-charcoal);
+  color: #E5E7EB;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
