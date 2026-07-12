@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hot-pink: #FF2E9A;
+  --color-hot-pink-light: #FF6EC7;
+  --color-hot-pink-dark: #D6127C;
+  --color-champagne: #FBF1E6;
+  --color-champagne-dark: #F1DFC9;
+  --color-ink: #120A10;
+  --color-charcoal: #1E1420;
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --background: #FBF1E6;
+  --foreground: #120A10;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Playful pink scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF1E6;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6EC7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF2E9A;
+}
+
+/* Bubbly shine effect on hover */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 55%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+.shine-effect:hover::after {
+  transform: translate(100%, 100%) rotate(45deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(4deg); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
