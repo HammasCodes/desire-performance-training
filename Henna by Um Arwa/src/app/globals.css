@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon-dark: #3B040B;
+  --color-maroon-deep: #5B0612;
+  --color-maroon-medium: #721C28;
+  --color-maroon-light: #8E2E3C;
+  --color-gold-dark: #B38F4D;
+  --color-gold-metallic: #D4AF37;
+  --color-gold-accent: #DFBA73;
+  --color-gold-soft: #F6E2BD;
+  --color-cream-base: #FDFBF7;
+  --color-cream-dark: #F5EFEB;
+  --color-cream-light: #FFFFFF;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #FDFBF7;
+  --foreground: #3B040B;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom Utilities & Animations */
+.text-stroke-gold {
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.4);
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #B38F4D 0%, #D4AF37 50%, #DFBA73 100%);
+}
+
+.maroon-gradient-bg {
+  background: linear-gradient(135deg, #3B040B 0%, #5B0612 50%, #721C28 100%);
+}
+
+.cream-gradient-bg {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF7 50%, #F5EFEB 100%);
+}
+
+/* Elegant Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #5B0612;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B040B;
+}
+
+/* Subtle Henna/Mandala pattern style placeholder */
+.mandala-pattern {
+  background-color: #5b0612;
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+                    radial-gradient(circle at 0 0, rgba(212, 175, 55, 0.15) 1px, transparent 1px),
+                    radial-gradient(circle at 100% 0, rgba(212, 175, 55, 0.15) 1px, transparent 1px),
+                    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.15) 1px, transparent 1px),
+                    radial-gradient(circle at 0 100%, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.mandala-pattern-light {
+  background-color: #fdfbf7;
+  background-image: radial-gradient(circle at 50% 50%, rgba(91, 6, 18, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
