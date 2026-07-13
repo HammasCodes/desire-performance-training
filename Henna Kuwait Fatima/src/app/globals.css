@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FCFBF7;
+  --foreground: #2A2521;
+}
+
+@theme {
+  --color-maroon-50: #fff0f2;
+  --color-maroon-100: #ffdce1;
+  --color-maroon-200: #ffbec8;
+  --color-maroon-300: #ff8fa2;
+  --color-maroon-400: #ff5274;
+  --color-maroon-500: #ff1c4b;
+  --color-maroon-600: #e6002f;
+  --color-maroon-700: #c20023;
+  --color-maroon-800: #9f0220;
+  --color-maroon-900: #81071f;
+  --color-maroon-950: #5c061c;
+  
+  --color-gold-50: #faf7e6;
+  --color-gold-100: #f1ecbf;
+  --color-gold-200: #e4db8d;
+  --color-gold-300: #d4c455;
+  --color-gold-400: #c5ad2f;
+  --color-gold-500: #ab9122;
+  --color-gold-600: #8d7319;
+  --color-gold-700: #6e5515;
+  --color-gold-800: #574314;
+  --color-gold-900: #4a3814;
+  --color-gold-950: #aa7c11;
+  
+  --color-gold: #d4af37;
+  --color-cream-50: #fcfcfc;
+  --color-cream-100: #fcfbf7;
+  --color-cream-200: #f5f2eb;
+  --color-cream-300: #eae4d7;
+  --color-cream-400: #d6ccb8;
+  --color-cream-500: #baa88f;
+  --color-cream-600: #9e8971;
+  --color-cream-700: #806b56;
+  --color-cream-800: #685645;
+  --color-cream-900: #57483a;
+  --color-cream-950: #2d241d;
+  
+  --color-charcoal: #2a2521;
+  
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Custom background patterns and grids */
+.bg-mandala {
+  background-image: radial-gradient(circle at center, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+}
+
+.bg-hero-pattern {
+  background-color: #5c061c;
+  background-image: radial-gradient(circle at 15% 25%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+                    radial-gradient(circle at 85% 75%, rgba(212, 175, 55, 0.12) 0%, transparent 45%);
+}
+
+/* Custom effects and animations */
+.border-gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fcf2d4 0%, #d4af37 50%, #b88d1d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.maroon-gradient-text {
+  background: linear-gradient(135deg, #9f0220 0%, #5c061c 50%, #2d020c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cream-card-pattern {
+  background: linear-gradient(145deg, #fcfbf7 0%, #f5f2eb 100%);
+}
+
