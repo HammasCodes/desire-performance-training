@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  /* Editorial beauty palette: blush pink / warm neutral / matte black accent */
+  --color-cream-warm: #FAF6F2;
+  --color-cream-card: #FFFCF9;
+  --color-blush-mist: #F4E4DE;
+  --color-blush-soft: #EAD0C8;
+  --color-blush-primary: #D9A7A0;
+  --color-blush-deep: #B57F78;
+  --color-sand: #E8DCCD;
+  --color-taupe: #B8A99B;
+  --color-matte-ink: #1A1716;
+  --color-matte-body: #4A4441;
+
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+
+  --animate-fade-in: fade-in 0.9s ease-out forwards;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:root {
+  --background: #FAF6F2;
+  --foreground: #1A1716;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #EAD0C8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D9A7A0;
+}
