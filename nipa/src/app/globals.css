@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  /* Henna / mehndi niche palette (60/30/10): cream bg, maroon surfaces, gold accents */
+  --color-maroon-deep: #5C1A1A; /* 30% — surfaces, headings on cream */
+  --color-maroon-ink: #4A1212; /* darker maroon for body text on cream — meets AA */
+  --color-maroon-soft: #7A2424;
+  --color-gold-metallic: #C9A227; /* 10% — buttons, links, ornaments */
+  --color-gold-deep: #A8841C; /* gold text on cream — passes AA */
+  --color-gold-soft: #E8D9A6;
+  --color-cream-base: #FAF3E7; /* 60% — page background */
+  --color-cream-warm: #F4E9D4;
+  --color-cream-card: #FFFBF1;
+
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #FAF3E7;
+  --foreground: #4A1212;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Typographic scale: 14 / 16 / 20 / 28 / 40 / 56 */
+.t-scale-14 { font-size: 14px; line-height: 1.6; }
+.t-scale-16 { font-size: 16px; line-height: 1.65; }
+.t-scale-20 { font-size: 20px; line-height: 1.5; }
+.t-scale-28 { font-size: clamp(24px, 4vw, 28px); line-height: 1.3; }
+.t-scale-40 { font-size: clamp(32px, 5.5vw, 40px); line-height: 1.15; }
+.t-scale-56 { font-size: clamp(40px, 9vw, 56px); line-height: 1.08; }
+
+/* Body line length kept 45–75 chars */
+.prose-measure { max-width: 65ch; }
+
+/* ─── Hero staggered entrance ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-enter { opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hero-delay-1 { animation-delay: 0.0s; }
+.hero-delay-2 { animation-delay: 0.1s; }
+.hero-delay-3 { animation-delay: 0.2s; }
+.hero-delay-4 { animation-delay: 0.3s; }
+
+/* ─── Gradient orb float (maroon→gold, low+slow) ─── */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(12px, -16px) scale(1.05); }
+}
+.hero-orb {
+  animation: orbFloat 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ─── Ken-burns slow zoom on hero backdrop ─── */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.kenburns { animation: kenburns 18s ease-out forwards; }
+
+/* ─── Scroll reveal (IntersectionObserver toggles .is-visible) ─── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Staggered children inside a revealed row */
+.stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.stagger.is-visible > *:nth-child(1) { transition-delay: 0.00s; }
+.stagger.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+.stagger.is-visible > *:nth-child(3) { transition-delay: 0.20s; }
+.stagger.is-visible > *:nth-child(4) { transition-delay: 0.30s; }
+.stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+/* ─── Button hover ─── */
+.btn-primary { transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(92, 26, 26, 0.45); }
+
+/* ─── Card hover lift (desktop only; touch has no hover) ─── */
+.card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card-lift:hover { transform: translateY(-6px); box-shadow: 0 16px 32px -12px rgba(92, 26, 26, 0.28); }
+
+/* ─── Gallery tile hover scale ─── */
+.tile-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.tile-lift:hover { transform: scale(1.03); }
+
+/* ─── Underline-grow links ─── */
+.link-grow { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.25s ease; }
+.link-grow:hover { background-size: 100% 1.5px; }
+
+/* Decorative gold hairline used on ornaments */
+.hairline-gold { border-color: rgba(201, 162, 39, 0.55); }
+
+/* Subtle dot-field texture for the deep-maroon sections (mandala-adjacent, no clip-art) */
+.mehndi-field {
+  background-color: #5C1A1A;
+  background-image: radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.10) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* ─── Respect reduced motion: no transforms/transitions ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-enter, .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+  .hero-orb, .kenburns, .card-lift:hover, .tile-lift:hover, .btn-primary:hover { transform: none !important; }
+}
