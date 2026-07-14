@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── 60 / 30 / 10 split: soft-white background (60%), sage secondary (30%), warm-gold accent (10%) ── */
+  --color-sage-bg: #faf8f3;        /* 60% — soft white, the page base */
+  --color-sage-card: #ffffff;       /* lifted card surface */
+  --color-sage-deep: #eef3ec;      /* faint sage tint for alternating sections */
+  --color-sage-soft: #b9cdba;      /* muted sage for borders/low-emphasis (non-text) */
+  --color-sage-mid: #8aa98a;       /* secondary tint (non-text / fills) */
+  --color-sage-anchor: #425b44;    /* 30% deep sage — section blocks; text on white (AA 7:1) */
+  --color-sage-ink: #3a4a3c;       /* body text on soft-white (AA vs #faf8f3 ≈ 8.9:1) */
+  --color-sage-on: #f6f9f4;        /* text on deep-sage blocks (AA vs #425b44 ≈ 7:1) */
+
+  --color-gold-accent: #c9a24e;    /* 10% — NON-TEXT only: button hovers, orb tints, ornaments */
+  --color-gold-deep: #8a6a24;      /* gold TEXT on white/cream (AA vs #faf8f3 = 4.75:1) */
+  --color-gold-on-sage: #e7c977;   /* gold TEXT on deep-sage blocks (AA vs #425b44 = 4.63:1) */
+  --color-gold-soft: #e7d49a;      /* faint gold tint (non-text) */
+
+  /* ── Real type scale 14/16/20/28/40/56 (per design-guidelines §1) ── */
+  --text-xs: 0.875rem;   /* 14 */
+  --text-sm: 1rem;        /* 16 — body baseline */
+  --text-base: 1.25rem;   /* 20 */
+  --text-lg: 1.75rem;     /* 28 */
+  --text-xl: 2.5rem;      /* 40 */
+  --text-2xl: 3.5rem;     /* 56 */
+
+  --font-display: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --animate-float-orb: float-orb 16s ease-in-out infinite;
+  --animate-ken-burns: ken-burns 22s ease-in-out infinite alternate;
+}
+
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.50;
+  }
+  50% {
+    transform: translate(2.5%, -3.5%) scale(1.08);
+    opacity: 0.72;
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.06) translate(-1.5%, -1%);
+  }
+}
+
+:root {
+  --background: #faf8f3;
+  --foreground: #3a4a3c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Scroll-reveal: IntersectionObserver toggles .is-visible on .reveal / .reveal-stagger ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* staggered children inside a reveal-stagger row (compositor-friendly: opacity + transform only) */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.20s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.30s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.40s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.50s; }
+
+/* underline-grow links — grows from left on hover (non-hover devices keep full underline) */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* respect reduced motion: disable every transform/transition/animation on the page */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf8f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a24e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8842f;
+}
