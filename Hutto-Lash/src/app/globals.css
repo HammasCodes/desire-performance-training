@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  /* 60 / 30 / 10 split: cream background (60%), deep-plum secondary (30%), soft-gold accent (10%) */
+  --color-cream-base: #faf3e7;
+  --color-cream-card: #fffaf2;
+  --color-cream-deep: #f3e7d3;
+  --color-plum-anchor: #4a2238;
+  --color-plum-soft: #5e2e47;
+  --color-plum-ink: #2e1525;
+  --color-gold-accent: #c9a15e;
+  --color-gold-deep: #a8813f;
+  --color-plum-body: #3a2a33;
+  --color-cream-onplum: #f5ead9;
+
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --animate-hero-float: hero-float 14s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(2.5%, -3%) scale(1.08);
+    opacity: 0.75;
+  }
+}
+
+:root {
+  --background: #faf3e7;
+  --foreground: #2e1525;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Scroll-reveal (IntersectionObserver toggles .is-visible on .reveal) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* staggered children inside a reveal row */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.12s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.24s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.36s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.48s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.60s; }
+
+/* underline-grow links */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* respect reduced motion: disable every transform/transition on the page */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf3e7;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a15e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8813f;
+}
